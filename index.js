@@ -1,6 +1,5 @@
 
 const mainGameboard = document.querySelector('#main-gameboard');
-// let currentPlayer = "O";
 let currentPlayer = null;
 let boardCells = [
     "", "", "", "", "", "", "", "", ""
@@ -11,21 +10,12 @@ function creatingGameBoard() {
         const individualCell = document.createElement('div');
         individualCell.classList.add('cells');
         individualCell.id = 'indiCell' + index;
-        // individualCell.addEventListener('click',)
         mainGameboard.append(individualCell);
     });
 }
 
 creatingGameBoard();
 
-// function subBoardsPerCell() {
-//     individualCell.forEach((_cell, sbBoard) => {
-//         const subBoard = document.createElement('div')
-//         subBoard.classList.add('sub');
-//         subBoard.id = 'sub' + sbBoard;
-//         individualCell.append(subBoard);
-//     })
-// }
 
 function subBoardsPerCell() {
     const cells = document.querySelectorAll('.cells'); // Select all cells
@@ -33,13 +23,12 @@ function subBoardsPerCell() {
         const subBoard = document.createElement('div');
         subBoard.classList.add('sub');
         subBoard.id = 'sub' + sbBoard;
-        // individualCell.append(subBoard);
-     // Create sub-cells within the sub-board
+      
      for (let subCell = 0; subCell < 9; subCell++) {
         const subCell = document.createElement('div');
         subCell.classList.add('sub-cell');
         subCell.id = 'sub-cell' + subCell;
-        // subBoard.append(subCell);
+      
         // Add a click event listener to each sub-cell
         subCell.addEventListener('click', () => {
             handleSubCellClick(sbBoard, subCell);
@@ -49,28 +38,13 @@ function subBoardsPerCell() {
     }
 
     individualCell.append(subBoard);
-});
-
-    // const subCells = document.querySelectorAll('.sub');
-    // subCells.forEach((subBoard, sbCell) => {
-    //     const subcells = document.createElement('div');
-    //     subCells.classList.add('sub-board-cells');
-    //     subCells.id = 'sub-board-cells' + sbCell;
-    //     subBoard.append(subCells)
-    // });
-
-    
+  });
 }
 
 subBoardsPerCell();
 
 function handleSubCellClick(sbBoard, subCell) {
     const subCells = document.getElementById('sub-cell' + subCell + sbBoard);
-
-    // if(subCell.textContent !== '') {
-    //     // we are just using return so if it is already clicked it wont do anything
-    //     return;
-    // }
 
     if (subCell.querySelector('.circle') || subCell.querySelector('.cross')) {
         // The sub-cell is already occupied, so return early.
@@ -103,12 +77,5 @@ function handleSubCellClick(sbBoard, subCell) {
     // document.querySelector(msgDisplay).innerHTML = `It's ${currentPlayer} turn`;
     msgDisplay.innerHTML = `It's ${currentPlayer} turn`;
 }
-
-// const subCells = document.getElementById("sub-cell");
-
-// subCells.addEventListener("click", function() {
-//     subBoardsPerCell();
-
-// })
 
 // try to ue conditions to toggle between hovers in the css when its circle hover a certain color and vise versa
