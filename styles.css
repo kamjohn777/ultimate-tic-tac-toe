@@ -1,0 +1,214 @@
+* {
+    padding: 0;
+    margin: 0 auto;
+}
+
+body {
+    height: 100vh;
+    width: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#turn-msg {
+    height: 100px;
+    width: 100px;
+    color: black;
+    position: absolute;
+    top: 4%;
+}
+
+.board-wrap {
+    display: flex;
+    height: 500px;
+    width: 601px;
+    border-radius: 26px;
+    /* background-color: #8000805c; */
+    /* background: #b95fb9; */
+    background: radial-gradient(circle at center center, rgb(236, 158, 248) 0%, rgb(131, 83, 241) 90.1%);
+    align-items: center;
+    justify-content: center;
+}
+
+#main-gameboard {
+    /* width: 494px;
+    height: 459px;
+    background: black;
+    display: flex; */
+
+    /* look more into flex-wrap: wrap before recording */
+
+    /* flex-wrap: wrap; */
+
+    /* border: solid 1px black; */
+
+    /* border: 1px solid #b95fb9;
+    align-items: center;
+    justify-content: center; */
+
+
+    /* width: 494px;
+    height: 459px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    border: solid 1px black;
+    grid-gap: 5px; */
+
+    width: 489px;
+    height: 453px;
+    background: black;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #b95fb9;
+    align-items: center;
+    justify-content: center;
+}
+
+.cells {
+    height: 151px;
+    width: 163px;
+    /* background-color: white; */
+    /* background: #b95fb9; */
+    background: radial-gradient(circle at center center, rgb(236, 158, 248) 0%, rgb(131, 83, 241) 90.1%);
+    border: solid 1px black;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* box-shadow: inset 0 0 5px 5px #f00; */
+    /* outline: 5px solid #f00; */
+}
+
+#indiCell0 {
+    /* background: none; */
+    border-left: none;
+    border-top: none;
+}
+
+#indiCell0, #indiCell1 {
+    border-right: solid 3px black;
+}
+
+#indiCell0, #indiCell1, #indiCell2 {
+    border-bottom: solid 3px black;
+}
+
+
+#indiCell3 {
+    border-left: none;
+    border-right: 3px solid black;
+}
+
+#indiCell1, #indiCell2 {
+    border-top: none;
+}
+
+#indiCell3, #indiCell4 {
+    border-right: 3px solid black;
+}
+
+#indiCell3, #indiCell4, #indiCell5 {
+    border-bottom: 3px solid black;
+}
+
+#indiCell6, #indiCell7 {
+    border-right: solid 3px black;
+}
+
+#indiCell0, #indiCell4, #indiCell6 {
+    border-left: none;
+}
+
+#indiCell2, #indiCell5, #indiCell8 {
+    border-right: none;
+}
+
+#indiCell6, #indiCell7, #indiCell8 {
+    border-bottom: none;
+}
+
+/* .sub-boards {
+    background:red;
+    height: 90px;
+    width: 90px;
+} */
+
+.sub {
+    background:black;
+    /* height: 142px; */
+    /* width: 150px; */
+    height: 138px;
+    width: 144px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    /* border: solid 1px #e1fff3; */
+    grid-gap: 1px;
+}
+
+.sub-cell {
+    display: flex;
+    height: 43px;
+    width: 45px;
+    background: #b95fb9;
+    align-items: center;
+    justify-content: center;
+}
+
+/* style for crosses and circles */
+.circle {
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+    background: none;
+    border: 5px solid red;
+}
+
+/* .cross {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: blue;
+}
+ */
+
+.cross {
+    height: 34px;
+    width: 34px;
+    position: relative;
+    transform: rotate(45deg);
+    /* background: blue; */
+}
+
+.cross:before, .cross::after {
+    content: "";
+    position: absolute;
+    background-color: yellow;
+}
+
+.cross:before {
+    left: 50%;
+    width: 19%;
+    margin-left: -15%;
+    height: 95%;
+}
+
+.cross:after {
+    top: 50%;
+    height: 19%;
+    margin-top: -15%;
+    width: 95%;
+}
+/* End of circle and crosses */
+
+/* Start of turn board switch */
+.circle-sub-board {
+    background: red;
+}
+
+.cross-sub-board {
+    background: yellow;
+}
