@@ -59,22 +59,21 @@ function handleSubCellClick(sbBoard, subCell) {
 
       // Add the circle or cross div element to the sub-cell based on the current player
       if (currentPlayer === 'circle') {
-        subCell.appendChild(crossDiv); // Display the cross for 'X'
+        subCell.appendChild(circleDiv); 
     } else {
-        subCell.appendChild(circleDiv); // Display the circle for 'O'
+        subCell.appendChild(crossDiv); 
     }
 
        // THIS CHANGES THE BOARDS COLORS WE'LL FIX IT A LITTLE MORE LATER
-     // Update the background color of the sub-boards based on the current player
+     // Updates the background color of the sub-boards based on the current player
      const subBoard = document.getElementById('sub' + sbBoard);
-     subBoard.classList.remove(currentPlayer === 'circle' ? 'cross-sub-board' : 'circle-sub-board');
-     subBoard.classList.add(currentPlayer === 'circle' ? 'circle-sub-board' : 'cross-sub-board');
+     subBoard.classList.remove(currentPlayer === 'circle' ? 'circle-sub-board' : 'cross-sub-board');
+     subBoard.classList.add(currentPlayer === 'circle' ? 'cross-sub-board' : 'circle-sub-board');
 
     currentPlayer = currentPlayer === 'circle' ? 'cross' : 'circle';
 
 
     const msgDisplay = document.getElementById('turn-msg');
-    // document.querySelector(msgDisplay).innerHTML = `It's ${currentPlayer} turn`;
     msgDisplay.innerHTML = `It's ${currentPlayer} turn`;
 }
 
