@@ -21,6 +21,7 @@ body {
 
 .board-wrap {
     display: flex;
+    margin-top: 40px;
     height: 500px;
     width: 900px;
     border-radius: 26px;
@@ -112,6 +113,12 @@ body {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     grid-gap: 1px;
+
+    opacity: 0.5;
+}
+
+.sub.active {
+    opacity: 1;
 }
 
 .sub-cell {
