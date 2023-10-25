@@ -6,7 +6,6 @@ let boardCells = [
 ]
 let activeSubBoards = [false, false, false, false, false, false, false, false, false];
 let lastMoveSubCell = null;
-// let activeSubBoard = null;
 
 function creatingGameBoard() {
     boardCells.forEach((_cell, index) => {
@@ -19,10 +18,6 @@ function creatingGameBoard() {
          // Add a click event listener to each game board cell
          individualCell.addEventListener('click', () => {
             if (activeSubBoards) {
-                // Only allow a move if a sub-board is active
-                // You can add your logic here to determine the valid moves
-                // For example, check if the clicked game board cell corresponds to the active sub-board
-                // If it's a valid move, proceed to handle the click
                 handleGameBoardCellClick(index);
             }
         });
@@ -73,6 +68,13 @@ function handleSubCellClick(sbBoard, subCellIndex) {
 
     subCell.appendChild(moveDiv);
 
+        // Switch the current player
+    if (currentPlayer === 'circle') {
+        currentPlayer = 'cross';
+    } else {
+        currentPlayer = 'circle';
+    }
+
     const subBoardDiv = document.getElementById('sub' + sbBoard);
     subBoardDiv.classList.toggle('circle-sub-board');
     subBoardDiv.classList.toggle('cross-sub-board');
@@ -83,36 +85,11 @@ function handleSubCellClick(sbBoard, subCellIndex) {
     msgDisplay.innerHTML = `It's ${currentPlayer} turn`;
 
 
-
-    /* TEMPT TOOK OUT TEST */
-    // const circleDiv = document.createElement('div');
-    // circleDiv.classList.add('circle');
-
-    // const crossDiv = document.createElement('div');
-    // crossDiv.classList.add('cross');
-
-    //   // Add the circle or cross div element to the sub-cell based on the current player
-    //   if (currentPlayer === 'circle') {
-    //     subCell.appendChild(circleDiv); 
-    // } else {
-    //     subCell.appendChild(crossDiv); 
-    // }
-    /* END OF TEMPT TOOK OUT TEST */
-
-       // THIS CHANGES THE BOARDS COLORS WE'LL FIX IT A LITTLE MORE LATER
-     // Updates the background color of the sub-boards based on the current player
-
-    /* TEMPT TAKE OUT 2 */
      const subBoard = document.getElementById('sub' + sbBoard);
      subBoard.classList.remove(currentPlayer === 'circle' ? 'circle-sub-board' : 'cross-sub-board');
      subBoard.classList.add(currentPlayer === 'circle' ? 'cross-sub-board' : 'circle-sub-board');
 
     currentPlayer = currentPlayer === 'circle' ? 'cross' : 'circle';
-
-
-    // const msgDisplay = document.getElementById('turn-msg');
-    // msgDisplay.innerHTML = `It's ${currentPlayer} turn`;
-     /*END TEMPT TAKE OUT 2 */
 
     // Deactivate all sub-boards
     activeSubBoards = activeSubBoards.map(() => false);
