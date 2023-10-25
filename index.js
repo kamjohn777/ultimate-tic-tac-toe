@@ -1,4 +1,3 @@
-
 const mainGameboard = document.querySelector('#main-gameboard');
 let currentPlayer = 'cross';
 let boardCells = [
